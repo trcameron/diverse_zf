@@ -1,0 +1,249 @@
+\documentclass[11pt]{article}
+
+\usepackage[inner=1.5cm,outer=1.5cm,top=2.5cm,bottom=2.5cm]{geometry}							% Margins
+\usepackage{fancyhdr, lastpage}															% Header	
+\usepackage[usenames,dvipsnames]{color}													% Color
+\definecolor{darkblue}{rgb}{0,0,.6}															% Dark Blue
+\definecolor{darkred}{rgb}{.7,0,0}															% Dark Red
+\definecolor{darkgreen}{rgb}{0,.6,0}															% Dark Green
+\definecolor{red}{rgb}{.98,0,0}																% Red
+\usepackage[colorlinks,urlcolor=darkblue,citecolor=darkblue,linkcolor=darkred,plainpages=false]{hyperref}	% Hyper-links
+\usepackage{epigraph}																	% Epigraph
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						Header							%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\vspace*{.10in}
+\pagestyle{fancyplain}
+\fancyhf{}
+\lhead{ \fancyplain{}{Linear Programming, Zero-Forcing, and Maximally Diverse Optima} }
+\rhead{ \fancyplain{}{Spring 2021} }
+\fancyfoot[RO, LE] {page \thepage\ of \pageref{LastPage} }
+\thispagestyle{plain}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						Course Title and Quote				%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+{\large \textsc{MATH-494: Linear Programming, Zero-Forcing, and Maximally Diverse Optima}}\\
+\hspace*{5em}{\normalsize \emph{Spring 2021}}\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						Course Info						%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+\rule{7in}{0.4pt}
+\begin{minipage}[t]{.75\textwidth}
+\begin{tabular}{llcccll}
+\textbf{Professor:} & Thomas R. Cameron & & &  & \textbf{Meeting Time:} &Th 3:00 -- 4:00 pm\\
+\textbf{Email:} &  \href{mailto:trc5475@psu.edu}{trc5475@psu.edu} & & & & \textbf{Place:} & Zoom, ID 928 6010 0749 \\ \textbf{Office:} & Prischak P18 & & & & & Passcode 956057
+\end{tabular}
+\end{minipage}
+\rule{7in}{0.4pt}
+\end{center}
+\vspace{.5cm}
+\setlength{\unitlength}{1in}
+\renewcommand{\arraystretch}{2}
+
+\vspace*{.10in}
+\noindent\textbf{Course Description:}
+An introduction to linear programming, the zero-forcing number of a graph, and maximally diverse optima. 
+Our main focus will be on developing linear programs to compute the zero-forcing number of a graph; in particular, we want to find two optimal zero-forcing sets that are as diverse as possible. 
+Then,we will investigate which graphs have low diversity and which have a high diversity in their optimal zero-forcing sets. 
+Our hope is that this investigation will lead to an interesting analysis of graphs while making connections to other important graph parameters such as propagation time or throttling number.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						Readings							%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace*{.10in}
+\noindent\textbf{Resources:}
+\begin{itemize}
+\item	T. S. Ferguson. Linear Programming: A Concise Introduction
+\item A. Schrijver. Theory of Linear and Integer Programming, 1999
+\item S. Fallat, L. Hogben. Minimum Rank, Maximum Nullity, and Zero Forcing Number of Graphs, 2014
+\item B. Brimkov, C.C. Fast, I.V. Hicks. Computational approaches for zero forcing and related problems. European Journal of Operational Research, 2019
+\item	B. Brimkov, I. V. Hicks, D. J. Mikesell. Improved computational approaches and heuristics for zero forcing. INFORMS Journal on Computing, 2020
+\item T. R. Cameron, J. Pulaj and S. Charmot. Diameter polytopes of feasible binary programs, arXiv preprint arXiv:2008.06844, 2020
+\item T. R. Cameron, J. Pulaj and S. Charmot. On The Linear Ordering Problem and The Rank of Data, 2020
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						Learning Outcomes					%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace*{.10in}
+\noindent\textbf{Learning Outcomes:}
+Upon successful completion of the course, the student will be able to
+\begin{itemize}
+\item Programming in Python
+\begin{itemize}
+\item Solve linear programming models using CPLEX, Gurobi, or SCIP.
+\item Write models for computing the zero-forcing number of a graph.
+\item Write models for computing two maximally diverse optimal zero-forcing sets. 
+\item	Use Nauty-Traces to investigate the zero-forcing number and diverse optimal zero-forcing sets for graphs on a small number of nodes, or random graphs on a large number of nodes.
+\end{itemize}
+
+\item Mathematical Theory
+\begin{itemize}
+\item Explain with examples the zero-forcing number of a graph.
+\item Explain with examples other graph parameters such as propagation time and the throttling number.
+\item	Explain with examples the basic linear programming theory: standard form, duality, and the simplex method. 
+\item Explain with examples the general model for computing maximally diverse optima.
+\end{itemize}
+
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						Grading Policy						%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\noindent\textbf{Grading Policy:}~\\
+Your final grade is broken up as follows. 
+\begin{center}
+\begin{tabular}{|cc|}
+\hline
+Category & Percentage\\
+\hline
+Documentation & $20\%$\\
+Weekly Meetings & $30\%$\\
+Behrend-Sigma Xi Conference & $50\%$\\
+\hline
+\end{tabular}
+\end{center}
+
+Your final letter grade is based on the following scale.
+\begin{center}
+\begin{tabular}{|cc | cc | cc|}
+  \hline
+  Grade & Percentage Interval & Grade & Percentage Interval\\
+  \hline
+  A & $[93,100]$ & C+ & $[76,80)$\\
+  A- & $[90,93)$ & C & $[73,76)$ \\
+  B+ & $[86,90)$ & C- & $[70,73)$\\
+  B & $[83,86)$ & D+ & $[66,70)$\\
+  B- & $[80,83)$ & D & $[63,66)$\\
+     &           & F & $[0,63)$\\
+  \hline
+\end{tabular}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						Assignment Descriptions				%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace*{.10in}
+\noindent\textbf{Documentation:}
+The student is responsible for documenting their research so that their work is organized and accessible to me.
+
+\vspace*{.10in}
+\noindent\textbf{Weekly Meetings:}
+The student is responsible for attending weekly meetings and coming prepared with insight and questions from their research.
+
+\vspace*{.10in}
+\noindent\textbf{Behrend-Sigma Xi Conference:}
+The student is responsible for presenting their work at the Behrend-Sigma Xi Conference, which is held on April 24, 2021.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						Academic Integrity												%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace*{.10in}
+\noindent\textbf{Academic Integrity:}
+Academic integrity is a basic guiding principle for all academic activity at the University, and all members of the community are expected to adhere to this principle. Specifically, academic integrity is the pursuit of scholarly activity in an open, honest, and responsible manner. It includes a commitment not to engage in or tolerate acts of falsification, misrepresentation, or deception. Such acts violate the fundamental ethical principles of the University community and undermine the efforts of others.
+
+Violations of academic integrity are not tolerated at Penn State Behrend. Violators will receive academic sanctions and may receive disciplinary sanctions, including the awarding of an XF grade. In cases such as these, an XF grade is recorded on the transcript and states that failure of the course was due to an act of academic dishonesty. All acts of academic dishonesty are recorded so those repeat offenders can be sanctioned accordingly.
+For more information: 
+\begin{center}
+\url{http://behrend.psu.edu/for-faculty-staff/faculty-resources/academic-integrity}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						Extra Help																%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace*{.10in}
+\noindent\textbf{Extra Help}:
+Dot not hesitate to come to my office during office hours or by appointment to discuss a homework problem or any aspect of the course.
+You also may want to consider the Math Lab (located on the second floor of Roche Hall) or the Learning Resource Center (located in the library).
+Hours can be found here: 
+\begin{center}
+\url{http://psbehrend.psu.edu/Academics/academic-services/lrc}.
+\end{center}
+See a schedule for all options on TutorTrac at \url{https://tutorapp.bd.psu.edu}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						Disabilities and Learning Differences						%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace*{.10in}
+\noindent\textbf{Disabilities and Learning Differences}:
+Penn State is strongly committed to providing full access to its programs and services for all individuals. The University encourages academically qualified students with disabilities to take advantage of the educational programs and accommodations offered at Penn State Behrend.
+For more information:
+\begin{center}
+\url{http://behrend.psu.edu/student-life/educational-equity-and-diversity/student-resources/students-with-disabilities-and-learning-differences}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						Educational Equity Concerns																		%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace*{.10in}
+\noindent\textbf{Educational Equity Concerns}:
+Penn State takes great pride to foster a diverse and inclusive environment for students, faculty, and staff.  Acts of intolerance, discrimination, harassment, and/or incivility due to age, ancestry, color, disability, gender, national origin, race, religious belief, sexual orientation, or veteran status are not tolerated and can be reported through Educational Equity at the Report Bias site: \url{https://equity.psu.edu/reportbias}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						Counseling and Psychological Services					%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace*{.10in}
+\noindent\textbf{Counseling and Psychological Services}:
+Students with academic concerns related to this course should contact the instructor in person or via email. Students also may occasionally have personal issues that arise in the course of pursuing higher education that may interfere with their academic performance. If you find yourself facing problems affecting your coursework, you are encouraged to talk with an instructor and to seek confidential assistance at the Penn State Behrend Personal Counseling Services at (814) 898-6504.
+For more information: 
+\url{http://psbehrend.psu.edu/student-life/student-services/personal-counseling}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						Copyright of Class Materials									%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace*{.10in}
+\noindent\textbf{Copyright of Class Materials}:
+You may not share any information from this course (including notes and assignments) with others who are not currently registered for the course, nor post such information electronically without the permission of the instructor--this includes online note-taking/note-sharing services (See Penn State Administrative Policy AD-40).  Also prohibited in the policy is the posting of audio, video, or photographs posted to social media sites or other publicly accessible resources.  Unless you have my permission, you risk disciplinary sanctions.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						Title IX								%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace*{.10in}
+\noindent\textbf{Title IX}:
+Penn State is committed to fostering an environment free from sexual or gender-based harassment or misconduct. The Office of Sexual Misconduct Prevention and Response ensures compliance with Title IX, a federal law that prohibits discrimination based on the sex or gender of employees and students.  Behaviors including sexual harassment, sexual misconduct, dating violence, domestic violence, and stalking, as well as retaliation for reporting any of these acts violate Title IX and are not tolerated. The University is also committed to providing support to those who may have been impacted by incidents of sexual or gender-based harassment or misconduct and may provide various resources and support services to individuals who have experienced one of these incidents.
+For more information: \url{http://titleix.psu.edu/} or
+\begin{center}
+\url{http://titleix.psu.edu/resources-penn-state-erie-the-behrend-college/}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						Wellness Days													%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\noindent\textbf{Wellness Days:}
+February 9, March 11, and April 7 have been designated as a Wellness Day. No class meetings will happen, either in person or remotely, for those days, and no assignments will be due on those days. Students are encouraged to use these days to focus on their physical and mental health. Please see \url{https://wellnessdays.psu.edu/} for university sponsored events focusing on wellness that may be of interest to you. See Canvas or the course webpage for any work that may be due before the next class meeting. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						Important Dates													%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace*{.10in}
+\noindent\textbf{Important Dates:}
+\begin{flushleft}
+Classes Begin \dotfill January 19\\
+Regular Drop Deadline \dotfill 11:59 pm January 24\\
+Regular Add Deadline  \dotfill 11:59 pm January 25\\
+Wellness Day (no classes) \dotfill February 9\\
+Behrend-Sigma Xi Abstract/Registration Deadline \dotfill February 22 \\
+Final Exam Conflict Filing Period \dotfill February 22 - March 14\\
+Wellness Day (no classes) \dotfill March 11\\
+Wellness Day (no classes) \dotfill April 7\\
+Late Drop Deadline \dotfill April 9\\
+Behrend-Sigma Xi Material Submission Deadline \dotfill April 12 \\
+Behrend-Sigma Xi Conference \dotfill April 24 \\
+Classes End \dotfill April 30\\
+\end{flushleft}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						Disclaimer																%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace*{.10in}
+\noindent\textbf{Disclaimer:}
+I reserve the right to diverge from this syllabus in the best interest of my students learning and achievement.
+Any changes made will be announced in advance. 
+
+\end{document}
