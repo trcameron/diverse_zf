@@ -2,7 +2,9 @@
 from sys import stdin
 from cplex import Cplex
 from nauty_geng_reader import graph6
+from networkx import Graph, draw
 from numpy import array, concatenate, ones, sum, zeros
+from matplotlib import pyplot as plt
 
 ###############################################
 ###             zero forcing scip           ###
@@ -184,21 +186,16 @@ def zero_forcing(a):
 ###             main                        ###
 ###############################################
 def main():
-    a = array([[0,1,1,1],[1,0,0,0],[1,0,0,0],[1,0,0,0]])
-    zf, s, x, y = zero_forcing(a)
-    print(zf)
-    print(s)
-    print(x)
-    print(y)
-    zero_forcing_scip(a,zf)
-    #try:
-    #    # read input stream
-    #    for line in stdin:
-    #        a = graph6(bytes(line.rstrip(),'utf-8'))
-    #        zf = zero_forcing(a)
-    #        print(a)
-    #        print(zf)
-    #except Exception as e:
-    #    print(e)
+    try:
+        # read input stream
+        for line in stdin:
+            a = graph6(bytes(line.rstrip(),'utf-8'))
+            zf,s,x,y = zero_forcing(a)
+            print(zf)
+            g = Graph(a)
+            draw(g,ax=plt.subplot(111))
+            plt.show()
+    except Exception as e:
+        print(e)
 if __name__ == '__main__':
     main()
