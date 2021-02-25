@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2020)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: zero_forcing_iepg.aux
+The style file: siam.bst
+Database file #1: Bibliography.bib
+You've used 10 entries,
+            2030 wiz_defined-function locations,
+            572 strings with 5237 characters,
+and the built_in function-call counts, 3791 in all, are:
+= -- 389
+> -- 135
+< -- 0
++ -- 56
+- -- 44
+* -- 278
+:= -- 565
+add.period$ -- 10
+call.type$ -- 10
+change.case$ -- 51
+chr.to.int$ -- 0
+cite$ -- 10
+duplicate$ -- 184
+empty$ -- 273
+format.name$ -- 44
+if$ -- 827
+int.to.chr$ -- 0
+int.to.str$ -- 10
+missing$ -- 11
+newline$ -- 33
+num.names$ -- 20
+pop$ -- 39
+preamble$ -- 1
+purify$ -- 42
+quote$ -- 0
+skip$ -- 176
+stack$ -- 0
+substring$ -- 304
+swap$ -- 92
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 38
+warning$ -- 0
+while$ -- 45
+width$ -- 12
+write$ -- 92
