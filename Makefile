@@ -1,5 +1,5 @@
 #####################################################
-#			Zero Forcing Diversity Make File		#################################################
+#			Zero Forcing Diversity Make File		#####################################################
 include make.inc
 	
 python_test:
