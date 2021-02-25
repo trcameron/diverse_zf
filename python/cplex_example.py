@@ -3,7 +3,7 @@ from cplex import Cplex
 from numpy import array, zeros
 
 ###############################################
-###             linear program             ###
+###             linear program             ##
 ###############################################
 def lp(a,b,c):
     # number of equations (m) and unknowns (n)
