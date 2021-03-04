@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{dirtytalk}
+\usepackage{enumerate}
+\usepackage[margin=1.00in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{optidef}
+\usepackage{tikz}
+
+
+
+
+
+
+\setlength{\headheight}{-.25in}
+\setlength{\topmargin}{-.25in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{9.6in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{\oddsidemargin}
+
+\newcommand{\ds}{\displaystyle}
+\renewcommand{\L}{\mathcal{L}}
+\newtheorem{qu}{}
+\newenvironment{ques}{\hspace{-.25in} \begin{qu} \rm}{\end{qu}}
+
+
+
+% new commands and math operators
+\newcommand\abs[1]{\left|#1\right|}
+\newcommand\zip[1]{\operatorname{ZIP}\left(#1\right)}
+\newcommand\dzfs[1]{\operatorname{DZFS}\left(#1\right)}
+
+\begin{document}
+\noindent
+{Diverse Zero Forcing Sets}
+\hfill
+{
+Jakob Loedding}
+
+\vspace{.3 in}
+
+\centerline{\large \bf  L{\small INEAR} P{\small ROGRAMMING,} Z{\small ERO-}F{\small ORCING,} {\small AND} M{\small AXIMALLY} D{\small IVERSE} O{\small PTIMA} }
+\vspace{.1 in}
+\centerline{\large  (P{\small ROGRESS} D{\small OCUMENTATION})}
+
+\vspace{.2 in}
+
+\section{}\label{sec:intro}
+%\item[\textbf{I.}]\textbf{Important Definitions}
+
+%%%%%%%%%%%%%%%%
+%	Zero Forcing IP Model	%
+%%%%%%%%%%%%%%%%
+\begin{mini!}
+	{}{\sum_{v\in V}s_{v}}{}{}\label{eq:zfip-obj}
+	\addConstraint{s_{v}+\sum_{e\in\delta^{-}(v)}y_{e}}{=1,~\quad\forall v\in V}\label{eq:zfip-const1}
+	\addConstraint{x_{u}-x_{v}+(T+1)y_{e}}{\leq T,~\quad\forall e=(u,v)\in E}\label{eq:zfip-const2}
+	\addConstraint{x_{w}-x_{v}+(T+1)y_{e}}{\leq T,~\quad\forall e=(u,v)\in E,~\forall w\in N(u)\setminus\{v\}}\label{eq:zfip-const3}
+	\addConstraint{s\in\{0,1\}^{n},~x\in\{0,\ldots,T\}^{n},~y\in\{0,1\}^{m}}{}\label{eq:zfip-const4}
+\end{mini!}
+
+\begin{mini!}
+	{}{\sum_{v\in V}s_{v}}{}{}\label{eq:zfip-obj}
+	\addConstraint{s_{v}+\sum_{e\in\delta^{-}(v)}y_{e}}{=1,~\quad\forall v\in V}\label{eq:zfip-const1}
+	\addConstraint{x_{u}-x_{v}+(T+1)y_{e}}{\leq T,~\quad\forall e=(u,v)\in E}\label{eq:zfip-const2}
+	\addConstraint{x_{w}-x_{v}+(T+1)y_{e}}{\leq T,~\quad\forall e=(u,v)\in E,~\forall w\in N(u)\setminus\{v\}}\label{eq:zfip-const3}
+	\addConstraint{s\in\{0,1\}^{n},~x\in\{0,\ldots,T\}^{n},~y\in\{0,1\}^{m}}{}\label{eq:zfip-const4}
+\end{mini!}
+
+\end{document}
