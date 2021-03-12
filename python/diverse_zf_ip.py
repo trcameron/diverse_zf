@@ -44,10 +44,11 @@ def ZFD(a,s):
         cols.append(v) 
         vals.append(1)
         for k in range(m):
-            # y_e with e = (u,v)
-            rows.append(count)
-            cols.append(3*n + k)
-            vals.append(1)
+            if(edges[k][1] == v):
+                # y_e with e = (u,v)
+                rows.append(count)
+                cols.append(4*n + k)
+                vals.append(1)
 
         rhs.append(1)
         sense += "E"
@@ -60,10 +61,11 @@ def ZFD(a,s):
         cols.append(n + v) 
         vals.append(1) 
         for k in range(m):
-            # y_e' with e = (u,v)
-            rows.append(count)
-            cols.append(4*n + m + k) # n+n+n+n+m+k
-            vals.append(1)
+            if(edges[k][1] == v):
+                # y_e' with e = (u,v)
+                rows.append(count)
+                cols.append(4*n + m + k) # n+n+n+n+m+k
+                vals.append(1)
 
         rhs.append(1)
         sense += "E"
@@ -184,8 +186,9 @@ def ZFD(a,s):
 
     # optimal solution
     optSol = IP.solution.get_objective_value()
+    print(optSol, s1, s2, x1, x2, y1, y2)
     
-    return opt, s1, s2, x1, x2, y1, y2
+    return optSol, s1, s2, x1, x2, y1, y2
 
     
 ###############################################
@@ -195,11 +198,11 @@ def main():
     #try:
         # read input stream
         #for line in stdin:
-<<<<<<< HEAD
+#<<<<<<< HEAD
     # path graph
-=======
+#=======
             # path graph
->>>>>>> 0ba7596935266c464feb79fb07c22d1b06e3751f
+#>>>>>>> 0ba7596935266c464feb79fb07c22d1b06e3751f
     a = array([[0,1,0,0,0],[1,0,1,0,0], [0,1,0,1,0], [0,0,1,0,1],[0,0,0,1,0]])
     opt = zf_std(a)
     ZFD(a,opt[0])
