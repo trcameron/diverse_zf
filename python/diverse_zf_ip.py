@@ -145,7 +145,7 @@ def main():
         # read input stream
         #for line in stdin:
             # path graph
-    a = [[0,1,0,0,0],[1,0,1,0,0], [0,1,0,1,0], [0,0,1,0,1],[0,0,0,1,0]]
+    a = array([[0,1,0,0,0],[1,0,1,0,0], [0,1,0,1,0], [0,0,1,0,1],[0,0,0,1,0]])
     opt = zf_std(a)
     opt
     dv_zf(a,opt[0])

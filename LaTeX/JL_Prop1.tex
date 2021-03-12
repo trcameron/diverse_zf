@@ -32,11 +32,20 @@
 % new commands and math operators
 \newcommand\abs[1]{\left|#1\right|}
 \newcommand\zip[1]{\operatorname{ZIP}\left(#1\right)}
-\newcommand\dzfs[1]{\operatorname{DZFS}\left(#1\right)}
+\newcommand\dzf[1]{\operatorname{DZF}\left(#1\right)}
+
+% new theorems and definitions
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{question}[theorem]{Question}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
 
 \begin{document}
 \noindent
-{Diverse Zero Forcing Sets}
+{MATH 494}
 \hfill
 {
 Jakob Loedding}
@@ -49,26 +58,41 @@ Jakob Loedding}
 
 \vspace{.2 in}
 
-\section{}\label{sec:intro}
-%\item[\textbf{I.}]\textbf{Important Definitions}
+\section{Diversity Model/Integer Program}\label{sec:intro}
+Denote the diversity model as $\dzf{G,s^{*}}$, where $G \in \mathbb{G}$ and $s^{*}$ is an optimal solution to $\zip{G}$.
 
-%%%%%%%%%%%%%%%%
-%	Zero Forcing IP Model	%
-%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%    Diverse Zero Forcing IP Model        %
+%%%%%%%%%%%%%%%%%%%%%
 \begin{mini!}
-	{}{\sum_{v\in V}s_{v}}{}{}\label{eq:zfip-obj}
-	\addConstraint{s_{v}+\sum_{e\in\delta^{-}(v)}y_{e}}{=1,~\quad\forall v\in V}\label{eq:zfip-const1}
-	\addConstraint{x_{u}-x_{v}+(T+1)y_{e}}{\leq T,~\quad\forall e=(u,v)\in E}\label{eq:zfip-const2}
-	\addConstraint{x_{w}-x_{v}+(T+1)y_{e}}{\leq T,~\quad\forall e=(u,v)\in E,~\forall w\in N(u)\setminus\{v\}}\label{eq:zfip-const3}
-	\addConstraint{s\in\{0,1\}^{n},~x\in\{0,\ldots,T\}^{n},~y\in\{0,1\}^{m}}{}\label{eq:zfip-const4}
-\end{mini!}
+	{}{\sum_{v\in V}z_{v}}{}{}\label{eq:zfip-obj}
+	\addConstraint{s_{v}+\sum_{e\in\delta^{-}(v)}y_{e}}{=1,~\quad\forall \ v\in V}\label{eq:zfip-const1}
+	\addConstraint{s_{v}^{'}+\sum_{e\in\delta^{-}(v)}y_{e}^{'}}{=1,~\quad\forall \ v\in V}\label{eq:zfip-const2}
+	\addConstraint{x_{u}-x_{v}+(T+1)y_{e}}{\leq T,~\quad\forall \ e=(u,v)\in E}\label{eq:zfip-const3}
+	\addConstraint{x_{u}^{'}-x_{v}^{'}+(T+1)y_{e}^{'}}{\leq T,~\quad\forall \ e=(u,v)\in E}\label{eq:zfip-const4}
+	\addConstraint{x_{w}-x_{v}+(T+1)y_{e}}{\leq T,~\quad\forall \ e=(u,v)\in E,~\forall \ w\in N(u)\setminus\{v\}}\label{eq:zfip-const5}
+	\addConstraint{x_{w}^{'}-x_{v}^{'}+(T+1)y_{e}^{'}}{\leq T,~\quad\forall \ e=(u,v)\in E,~\forall \ w\in N(u)\setminus\{v\}}\label{eq:zfip-const6}
+	\addConstraint{\sum_{v \in V}s_{v}}{=s^{*}}\label{eq:zfip-const7}
+	\addConstraint{\sum_{v \in V}s_{v}^{'}}{= s^{*}}\label{eq:zfip-const8}
+	\addConstraint{s_{v}+s_{v}^{'}-z_{v}}{\leq T,~\quad\forall \ v \in V }\label{eq:zfip-const9}
+	\addConstraint{s, s^{'}\in\{0,1\}^{n}, ~x, x^{'}\in\{0,\ldots,T\}^{n},~y, y^{'}\in\{0,1\}^{m}}{}\label{eq:zfip-const10}
+\end{mini!} 
 
-\begin{mini!}
-	{}{\sum_{v\in V}s_{v}}{}{}\label{eq:zfip-obj}
-	\addConstraint{s_{v}+\sum_{e\in\delta^{-}(v)}y_{e}}{=1,~\quad\forall v\in V}\label{eq:zfip-const1}
-	\addConstraint{x_{u}-x_{v}+(T+1)y_{e}}{\leq T,~\quad\forall e=(u,v)\in E}\label{eq:zfip-const2}
-	\addConstraint{x_{w}-x_{v}+(T+1)y_{e}}{\leq T,~\quad\forall e=(u,v)\in E,~\forall w\in N(u)\setminus\{v\}}\label{eq:zfip-const3}
-	\addConstraint{s\in\{0,1\}^{n},~x\in\{0,\ldots,T\}^{n},~y\in\{0,1\}^{m}}{}\label{eq:zfip-const4}
-\end{mini!}
+\begin{proposition}
+Given an optimal solution to $\dzf{G,s^{*}}$, $z_v = 1$ for some $v \in V$ if and only if $s_v = s_v^{'} = 1$.
+\end{proposition}
+
+\begin{proof}
+Suppose $z_v = 1$ for some $v \in V$.
+By way of contradiction, also suppose either $s_v = 0$ or $s_v^{'} = 0$.
+Then constraint  (\ref{eq:zfip-const9}) will be true if $z_v = 0$.
+This contradicts the fact that we have an optimal solution to $\dzf{G,s^{*}}$, i.e., the objective function (\ref{eq:zfip-obj}) would not be minimized.
+Thus, our assumption that $s_v = 0$ or $s_v^{'} = 0$ must be false.
+Hence, $s_v = s_v^{'} = 1$.
+
+Conversely, let $s_v = s_v^{'} = 1$ for some $v \in V$.
+Then constraint (\ref{eq:zfip-const9}) holds only when $z_v = 1$. 
+Therefore, given an optimal solution to $\dzf{G,s^{*}}$, $z_v = 1$ for some $v \in V$ if and only if $s_v = s_v^{'} = 1$.
+\end{proof}
 
 \end{document}
