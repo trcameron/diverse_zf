@@ -195,7 +195,11 @@ def main():
     #try:
         # read input stream
         #for line in stdin:
+<<<<<<< HEAD
     # path graph
+=======
+            # path graph
+>>>>>>> 0ba7596935266c464feb79fb07c22d1b06e3751f
     a = array([[0,1,0,0,0],[1,0,1,0,0], [0,1,0,1,0], [0,0,1,0,1],[0,0,0,1,0]])
     opt = zf_std(a)
     ZFD(a,opt[0])

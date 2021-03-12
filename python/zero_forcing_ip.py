@@ -21,9 +21,9 @@ def zf_std(a):
                 edges.append((i,j))
                 m += 1
     # objective function
+    T = n-1 # maximal propogation time
     obj = concatenate((ones(n),zeros(n),zeros(m)))
     # lower and upper bounds
-    T = n-1 # maximal propogation time
     lb = concatenate((zeros(n),zeros(n),zeros(m)))
     ub = concatenate((ones(n),T*ones(n),ones(m)))
     # constraints
@@ -103,7 +103,9 @@ def main():
         # read input stream
         for line in stdin:
             a = graph6(bytes(line.rstrip(),'utf-8'))
-            opt,s,_,_ = zf_std(a)
+            opt,s,x,y = zf_std(a)
+            
+            print(x)
             
             g = Graph(a)
             color_map = []
@@ -112,7 +114,7 @@ def main():
                     color_map.append('#0000FF')
                 else:
                     color_map.append('#C0C0C0')
-            draw(g,node_color=color_map,ax=plt.subplot(111))
+            draw(g,with_labels=True,node_color=color_map,ax=plt.subplot(111))
             plt.show()
     except Exception as e:
         print(e)
