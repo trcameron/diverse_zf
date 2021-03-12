@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  3 MAR 2021 19:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  11 MAR 2021 13:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -766,6 +766,21 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 62.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+
+LaTeX Warning: Command \textdagger invalid in math mode on input line 79.
+
+
+LaTeX Warning: Command \textdagger invalid in math mode on input line 79.
+
+Missing character: There is no „ in font cmr10!
+
+LaTeX Warning: Command \textdagger invalid in math mode on input line 79.
+
+
+LaTeX Warning: Command \textdagger invalid in math mode on input line 79.
+
+Missing character: There is no „ in font cmr10!
+
 Overfull \vbox (18.06749pt too high) has occurred while \output is active []
 
 
@@ -779,15 +794,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 98.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 98.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 98.
 Package rerunfilecheck Info: File `JL_Prop1.out' has not changed.
-(rerunfilecheck)             Checksum: 0619D92A91932D6E6138F61AF7B8BDC8;66.
+(rerunfilecheck)             Checksum: B7D5D63154B46712CA727742BBFE684F;78.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 98.
  ) 
 Here is how much of TeX's memory you used:
- 18732 strings out of 480608
- 352158 string characters out of 5903631
- 621457 words of memory out of 5000000
- 34231 multiletter control sequences out of 15000+600000
- 536508 words of font info for 40 fonts, out of 8000000 for 9000
+ 18735 strings out of 480608
+ 352194 string characters out of 5903631
+ 621601 words of memory out of 5000000
+ 34233 multiletter control sequences out of 15000+600000
+ 536843 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,16n,60p,931b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
@@ -805,7 +820,7 @@ ve/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive
 /2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2
 020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/20
 20/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on JL_Prop1.pdf (1 page, 144900 bytes).
+Output written on JL_Prop1.pdf (1 page, 144520 bytes).
 PDF statistics:
  100 PDF objects out of 1000 (max. 8388607)
  81 compressed objects within 1 object stream
