@@ -8,8 +8,6 @@ from nauty_geng_reader import graph6
 from numpy import array, concatenate, ones, sum, zeros
 from zero_forcing_ip import zf_std
 
-
-
 ###############################################
 ###           zero forcing diameter         ###
 ###############################################
@@ -186,7 +184,6 @@ def ZFD(a,s):
 
     # optimal solution
     optSol = IP.solution.get_objective_value()
-    print(optSol, s1, s2, x1, x2, y1, y2)
     
     return optSol, s1, s2, x1, x2, y1, y2
 
@@ -195,20 +192,32 @@ def ZFD(a,s):
 ###             main                        ###
 ###############################################
 def main():
-    #try:
+    try:
         # read input stream
-        #for line in stdin:
-#<<<<<<< HEAD
-    # path graph
-#=======
-            # path graph
-#>>>>>>> 0ba7596935266c464feb79fb07c22d1b06e3751f
-    a = array([[0,1,0,0,0],[1,0,1,0,0], [0,1,0,1,0], [0,0,1,0,1],[0,0,0,1,0]])
-    opt = zf_std(a)
-    ZFD(a,opt[0])
-            
-    #except Exception as e:
-     #   print(e)
+        for line in stdin:
+            a = graph6(bytes(line.rstrip(),'utf-8'))
+            zf,s,x,y = zf_std(a)
+            zf_int,s1,s2,x1,x2,y1,y2 = ZFD(a,zf)
+            zf_dia = zf - zf_int
+            g = Graph(a)
+            color_map = []
+            for i in range(len(s1)):
+                if(s1[i]==1):
+                    color_map.append('#0000FF')
+                else:
+                    color_map.append('#C0C0C0')
+            draw(g,with_labels=True,node_color=color_map,ax=plt.subplot(121))
+            color_map = []
+            for i in range(len(s2)):
+                if(s2[i]==1):
+                    color_map.append('#0000FF')
+                else:
+                    color_map.append('#C0C0C0')
+            draw(g,with_labels=True,node_color=color_map,ax=plt.subplot(122))
+            plt.title("zf number = %d, zf diameter = %d"%(zf,zf_dia))
+            plt.show()
+    except Exception as e:
+        print(e)
         
 if __name__ == '__main__':
     main()
