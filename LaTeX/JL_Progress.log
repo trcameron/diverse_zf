@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  11 MAR 2021 13:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  24 MAR 2021 10:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**JL_Prop1.tex
-(./JL_Prop1.tex
+**JL_Progress.tex
+(./JL_Progress.tex
 LaTeX2e <2020-02-02> patch level 5
 L3 programming layer <2020-03-06>
 (/usr/local/texlive/2020/texmf-dist/tex/latex/base/article.cls
@@ -655,8 +655,8 @@ File: tikzlibrarytopaths.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )))
 \c@qu=\count298
 \c@theorem=\count299
- (./JL_Prop1.aux)
-\openout1 = `JL_Prop1.aux'.
+ (./JL_Progress.aux)
+\openout1 = `JL_Progress.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
 LaTeX Font Info:    ... okay on input line 46.
@@ -749,11 +749,12 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 46.
 LaTeX Info: Redefining \pageref on input line 46.
 LaTeX Info: Redefining \nameref on input line 46.
- (./JL_Prop1.out) (./JL_Prop1.out)
+ (./JL_Progress.out) (./JL_Progress.out)
 \@outlinefile=\write4
-\openout4 = `JL_Prop1.out'.
+\openout4 = `JL_Progress.out'.
 
- ABD: EveryShipout initializing macros
+
+ABD: EveryShipout initializing macros
 LaTeX Font Info:    Trying to load font information for U+msa on input line 62.
 
 
@@ -787,24 +788,24 @@ Overfull \vbox (18.06749pt too high) has occurred while \output is active []
 [1
 
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 98.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 98.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 111.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 111.
 
-(./JL_Prop1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 98.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 98.
-Package rerunfilecheck Info: File `JL_Prop1.out' has not changed.
-(rerunfilecheck)             Checksum: B7D5D63154B46712CA727742BBFE684F;78.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 98.
+(./JL_Progress.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 111.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 111.
+Package rerunfilecheck Info: File `JL_Progress.out' has not changed.
+(rerunfilecheck)             Checksum: 73CD5EF11EA9AEAB397E1B9A05A03D79;154.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 111.
  ) 
 Here is how much of TeX's memory you used:
- 18735 strings out of 480608
- 352194 string characters out of 5903631
- 621601 words of memory out of 5000000
- 34233 multiletter control sequences out of 15000+600000
+ 18738 strings out of 480608
+ 352273 string characters out of 5903631
+ 624646 words of memory out of 5000000
+ 34235 multiletter control sequences out of 15000+600000
  536843 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,16n,60p,931b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,16n,60p,934b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
@@ -820,10 +821,10 @@ ve/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive
 /2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2
 020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/20
 20/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on JL_Prop1.pdf (1 page, 144520 bytes).
+Output written on JL_Progress.pdf (1 page, 150572 bytes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
- 81 compressed objects within 1 object stream
- 16 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 109 PDF objects out of 1000 (max. 8388607)
+ 90 compressed objects within 1 object stream
+ 17 named destinations out of 1000 (max. 500000)
+ 29 words of extra memory for PDF output out of 10000 (max. 10000000)
 

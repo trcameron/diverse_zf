@@ -32,7 +32,7 @@
 % new commands and math operators
 \newcommand\abs[1]{\left|#1\right|}
 \newcommand\zip[1]{\operatorname{ZIP}\left(#1\right)}
-\newcommand\dzf[1]{\operatorname{ZFD}\left(#1\right)}
+\newcommand\zfd[1]{\operatorname{ZFD}\left(#1\right)}
 
 % new theorems and definitions
 \newtheorem{theorem}{Theorem}[section]
@@ -58,11 +58,11 @@ Jakob Loedding}
 
 \vspace{.2 in}
 
-\section{Zero Forcing Diameter Model/Integer Program}\label{sec:intro}
-Denote the zero forcing diameter model as $\dzf{G,s^{*}}$, where $G \in \mathbb{G}$ and $s^{*}$ is an optimal solution to $\zip{G}$.
+\section{Integer Program for Zero Forcing Diameter}\label{sec:intprog}
+Denote the zero forcing diameter model as $\zfd{G,s^{*}}$, where $G \in \mathbb{G}$ and $s^{*}$ is an optimal solution to $\zip{G}$.
 
 %%%%%%%%%%%%%%%%%%%%%
-%    Diverse Zero Forcing IP Model        %
+%    Zero Forcing  Diameter IP Model      %
 %%%%%%%%%%%%%%%%%%%%%
 \begin{mini!}
 	{}{\sum_{v\in V}z_{v}}{}{}\label{eq:zfip-obj}
@@ -77,22 +77,35 @@ Denote the zero forcing diameter model as $\dzf{G,s^{*}}$, where $G \in \mathbb{
 	\addConstraint{s_{v}+s_{v}^{'}-z_{v}}{\leq 1~\quad\forall \ v \in V }\label{eq:zfip-const9}
 	\addConstraint{s, s^{'},z†\in\{0,1\}^{n}, ~x, x^{'}\in\{0,\ldots,T\}^{n},~y, y^{'}\in\{0,1\}^{m}}{}\label{eq:zfip-const10}
 \end{mini!} 
+The triples $(s,x,y)$ and $(s^{'},x^{'},y^{'})$, where $s,s^{'} \in \{0,1\}^{n}$; $x,x^{'} \in \{0,...,T\}^{n}$, and $y,y^{'} \in \{0,1\}^{m}$, make a  \textit{feasible solution} of $\zfd{G,s^{*}}$ provided that $(s,x,y)$ and $(s^{'},x^{'},y^{'})$ satisfy (\ref{eq:zfip-const1})-(\ref{eq:zfip-const10}).
+Additionally, if $s$ and $s^{'}$ are minimal with respect to the objective function (\ref{eq:zfip-obj}), then we say that $(s,x,y)$ and $(s^{'},x^{'},y^{'})$ is an \textit{optimal solution} of $\zfd{G,s^{*}}$.
+The corresponding minimal value of the objective function (\ref{eq:zfip-obj}) is the \textit{optimal value} of $\zfd{G,s^{*}}$.
 
 \begin{proposition}
-Given an optimal solution to $\dzf{G,s^{*}}$, $z_v = 1$ for some $v \in V$ if and only if $s_v = s_v^{'} = 1$.
+Given an optimal solution to $\zfd{G,s^{*}}$, $z_v = 1$ for some $v \in V$ if and only if $s_v = s_v^{'} = 1$.
 \end{proposition}
 
 \begin{proof}
 Suppose $z_v = 1$ for some $v \in V$.
 By way of contradiction, also suppose either $s_v = 0$ or $s_v^{'} = 0$.
 Then constraint  (\ref{eq:zfip-const9}) will be true if $z_v = 0$.
-This contradicts the fact that we have an optimal solution to $\dzf{G,s^{*}}$, i.e., the objective function (\ref{eq:zfip-obj}) would not be minimized.
+This contradicts the fact that we have an optimal solution to $\zfd{G,s^{*}}$, i.e., the objective function (\ref{eq:zfip-obj}) would not be minimized.
 Thus, our assumption that $s_v = 0$ or $s_v^{'} = 0$ must be false.
 Hence, $s_v = s_v^{'} = 1$.
 
 Conversely, let $s_v = s_v^{'} = 1$ for some $v \in V$.
 Then constraint (\ref{eq:zfip-const9}) holds only when $z_v = 1$. 
-Therefore, given an optimal solution to $\dzf{G,s^{*}}$, $z_v = 1$ for some $v \in V$ if and only if $s_v = s_v^{'} = 1$.
+Therefore, given an optimal solution to $\zfd{G,s^{*}}$, $z_v = 1$ for some $v \in V$ if and only if $s_v = s_v^{'} = 1$.
 \end{proof}
+
+\section{Graphical Interpretation of Integer Program}\label{sec:zfdiam}
+ Given a \textit{feasible solution} of $\zfd{G,s^{*}}$, the value of the objective function (\ref{eq:zfip-obj}) can be defined as $|B \cap B^{'}|$, where $B$ and $B^{'}$ are zero forcing sets of $G$.
+Furthermore, the \textit{optimal value} of $\zfd{G,s^{*}}$ is equal to $\text{min}|B \cap B^{'}|$, where $B,B^{'} \in S$ and $S$ is the set of all minimal zero forcing sets of $G$.
+Considering the model $\zfd{G,s^{*}}$, denote the \textit{zero forcing diameter} of $G$ as $d(G) = s^{*} - min|B \cap B^{'}|$ where $B,B^{'} \in S$.
+Note that $s^{*}$ is an optimal solution to $\zip{G}$, which is equivalent to the zero forcing number of $G$.
+
+ 
+
+
 
 \end{document}
