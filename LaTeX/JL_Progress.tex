@@ -10,10 +10,8 @@
 \usepackage{optidef}
 \usepackage{tikz}
 
-
-
-
-
+\usepackage{mathtools}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 
 \setlength{\headheight}{-.25in}
 \setlength{\topmargin}{-.25in}
@@ -60,6 +58,15 @@ Jakob Loedding}
 
 \section{Integer Program for Zero Forcing Diameter}\label{sec:intprog}
 Denote the zero forcing diameter model as $\zfd{G,s^{*}}$, where $G \in \mathbb{G}$ and $s^{*}$ is an optimal solution to $\zip{G}$.
+That is, $s^{*}$ is the zero forcing number of $G$.
+The integer program $\zfd{G,s^{*}}$ presented in (\ref{eq:zfip-obj}) -(\ref{eq:zfip-const10}) computes the minimum intersection of two distinct zero forcing sets of $G$. We reference these sets by  $B$ and $B^{'}$.
+Note that every edge in $E(G)$ is represented by two directed edges with opposite direction.
+The binary variables $s_v$ and $s_v^{'}$ indicate whether $v$ is in $B$ or $B^{'}$ respectively.
+The variables $x_v, x_v^{'} \in \mathbb{Z}$ ranging in \{0,1,...,$T$\} specify at which time steps vertex $v$ is forced given its corresponding initial zero forcing set.
+Note that $T$ is the maximum difference in the forcing times of two vertices. 
+The binary variables $y_e, y_e^{'}$,  for each directed edge $e = (u,v)$, indicate whether $u$ forces $v$ given $B$ or $B^{'}$ initially.
+Lastly, the notation $\delta^{-}(v)$ references the set of edges pointing toward vertex $v$ and $N(u)$ denotes the set of all vertices $v \in V(G)$ that are adjacent to $u$. 
+Note that the vertex and edge sets of $G$ are denoted by $V$ and $E$ respectively.
 
 %%%%%%%%%%%%%%%%%%%%%
 %    Zero Forcing  Diameter IP Model      %
@@ -98,13 +105,47 @@ Then constraint (\ref{eq:zfip-const9}) holds only when $z_v = 1$.
 Therefore, given an optimal solution to $\zfd{G,s^{*}}$, $z_v = 1$ for some $v \in V$ if and only if $s_v = s_v^{'} = 1$.
 \end{proof}
 
-\section{Graphical Interpretation of Integer Program}\label{sec:zfdiam}
+\section{Zero Forcing Diameter/Graphical Interpretation of $\zfd{G,s^{*}}$}\label{sec:zfdiam}
  Given a \textit{feasible solution} of $\zfd{G,s^{*}}$, the value of the objective function (\ref{eq:zfip-obj}) can be defined as $|B \cap B^{'}|$, where $B$ and $B^{'}$ are zero forcing sets of $G$.
 Furthermore, the \textit{optimal value} of $\zfd{G,s^{*}}$ is equal to $\text{min}|B \cap B^{'}|$, where $B,B^{'} \in S$ and $S$ is the set of all minimal zero forcing sets of $G$.
-Considering the model $\zfd{G,s^{*}}$, denote the \textit{zero forcing diameter} of $G$ as $d(G) = s^{*} - min|B \cap B^{'}|$ where $B,B^{'} \in S$.
-Note that $s^{*}$ is an optimal solution to $\zip{G}$, which is equivalent to the zero forcing number of $G$.
+We define the \textit{zero forcing diameter} of a graph $G \in \mathbb{G}$ as 
+\begin{align}
+d(G) = zf(G) - \text{min}|B \cap B^{'}|
+\end{align}
+ where $B,B^{'} \in S$ and $zf(G)$ is the zero forcing number of $G$.
+Note that $zf(G) = s^{*}$ in terms of the inter program $\zfd{G,s^{*}}$ given in equations (\ref{eq:zfip-obj}) -(\ref{eq:zfip-const10}).
 
- 
+\begin{proposition}
+Given a graph $G \in \mathbb{G}$, $d(G) = 0$ if and only if $G$ is an empty graph.
+\end{proposition}
+\begin{proof}
+Suppose $G \in \mathbb{G}$ and $d(G) = 0$.
+This implies that $zf(G) = \text{min}|B \cap B^{'}|$, which means there is only one unique zero forcing set for $G$.
+\end{proof}
+
+\begin{proposition}
+Given a path graph $P_n$, $d(P_n)=1 \ \forall \ n \in \mathbb{N}$.
+\end{proposition}
+
+\begin{proposition}
+Given a complete graph $K_n$, $d(K_n)=1 \ \forall \ n \in \mathbb{N}$.
+\end{proposition}
+
+\begin{proposition}
+Given a star graph $S_n$, $d(S_n)=1 \ \forall \ n \in \mathbb{N}$.
+\end{proposition}
+
+\begin{proposition}
+Given a cycle graph $C_n$ , $d(C_n)=2 \ \forall \ n \geq 4 \in \mathbb{N}$.
+\end{proposition}
+
+\begin{theorem}
+For all graphs $G \in \mathbb{G}$, we have that $0 \leq d(G) \leq \floor{n/2}$ where $n$ is the order of $G$.
+\end{theorem}
+
+
+
+
 
 
 
