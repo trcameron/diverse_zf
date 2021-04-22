@@ -193,6 +193,29 @@ def ZFD(a,s):
 ###############################################
 def main():
     try:
+        # testing
+        a = array([[0,1,0,1,0,1,0],[1,0,1,0,0,0,0],[0,1,0,0,0,0,0],[1,0,0,0,1,0,0],[0,0,0,1,0,0,0],[1,0,0,0,0,0,1],[0,0,0,0,0,1,0]])
+        zf,s,x,y = zf_std(a)
+        zf_int,s1,s2,x1,x2,y1,y2 = ZFD(a,zf)
+        zf_dia = zf - zf_int
+        g = Graph(a)
+        color_map = []
+        for i in range(len(s1)):
+            if(s1[i]==1):
+                color_map.append('#0000FF')
+            else:
+                color_map.append('#C0C0C0')
+        draw(g,with_labels=True,node_color=color_map,ax=plt.subplot(121))
+        color_map = []
+        for i in range(len(s2)):
+            if(s2[i]==1):
+                color_map.append('#0000FF')
+            else:
+                color_map.append('#C0C0C0')
+        draw(g,with_labels=True,node_color=color_map,ax=plt.subplot(122))
+        plt.title("zf number = %d, zf diameter = %d"%(zf,zf_dia))
+        plt.show()
+        quit()
         # read input stream
         for line in stdin:
             a = graph6(bytes(line.rstrip(),'utf-8'))
