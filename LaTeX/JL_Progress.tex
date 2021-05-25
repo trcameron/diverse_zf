@@ -120,31 +120,54 @@ Given a graph $G \in \mathbb{G}$, $d(G) = 0$ if and only if $G$ is an empty grap
 \end{proposition}
 \begin{proof}
 Suppose $G \in \mathbb{G}$ and $d(G) = 0$, i.e., $zf(G) = \text{min}|B \cap B^{'}|$.
-This implies there is only one unique zero-forcing set of $G$, which is only possible for a graph with no edges.
-Thus, $G$ is an empty graph.
+This implies there is only one unique zero-forcing set of $G$, which is only possible if no forcings occur.
+Hence, our zero-forcing set must include all vertices in $G$.
+This implies that $G$ has no edges.
+Thus, $G$ is an empty graph by definition.
 
 Conversely, suppose $G$ is an empty graph.
 Since $G$ has no edges by definition, then the only way to force all of its vertices blue is to include them in our zero-forcing set.
 Hence, $\text{min}|B \cap B^{'}| = zf(G)$ where $B$, $B^{'}$ are minimal zero-forcing sets of $G$.
 Thus, $d(G) = 0$.
 Therefore, $d(G) = 0$ if and only if $G$ is an empty graph.
-
 \end{proof}
 
 \begin{proposition}
 Given a path graph $P_n$, $d(P_n)=1 \ \forall \ n \in \mathbb{N}$.
 \end{proposition}
+\begin{proof}
+Suppose $P_n$ is a path graph such that $n  \in \mathbb{N}$.
+By definition, $P_n$ contains at least 2 vertices and $zf(P_n) = 1$ [citation].
+Thus, $\text{min}|B\cap B^{'}| = 0$, where $B$ and $B^{'}$ are minimum zero-forcing sets containing the leftmost and rightmost vertices of $P_n$ respectively. 
+Therefore, $d(G) = 1$ by definition.
+\end{proof}
 
 \begin{proposition}
 Given a complete graph $K_n$, $d(K_n)=1 \ \forall \ n \in \mathbb{N}$.
 \end{proposition}
+\begin{proof}
+Suppose $K_n$ is a complete graph such that $n \in \mathbb{N}$.
+Note that $zf(K_n) = n - 1$ [citation].
+To calculate $d(K_n)$, let $B$ be a minimum zero-forcing set containing $n-1$ arbitrary vertices in $V(K_n)$.
+Let $B^{'}$ be another minimum zero-forcing set containing the vertex in the set $V(K_n) - B$ in addition  to $n-2$ unique, arbitrary vertices in $V(K_n)$.
+Since $|B| = n- 1$ and $V(K_n) - B \subseteq B^{'}$, then $\text{min}|B \cap B^{'}| = n-2$.
+Therefore, $d(K_n) = (n-1) - (n-2) = 1$.
+\end{proof}
 
 \begin{proposition}
 Given a star graph $S_n$, $d(S_n)=1 \ \forall \ n \in \mathbb{N}$.
 \end{proposition}
+\begin{proof}
+Suppose $S_n$ is a star graph such that $n \in \mathbb{N}$ and let $L(S_n) \subseteq V(S_n)$ be the set of leaves in the graph $S_n$.
+Note that $zf(S_n) = n - 2$ [citation].
+To calculate $d(S_n)$, let $B$ be a minimum zero-forcing set of $S_n$ containing $|L(S_n)| - 1$ arbitrary leaves in $L(S_n)$, i.e., $n - 2$ vertices in $V(S_n)$.
+Similarly, let $B^{'}$ be another minimum zero-forcing set of $S_n$ containing the vertex in the set $L(S_n) - B$ and  $|L(S_n)|-2$ unique, arbitrary leaves in $L(S_n)$.
+Since $|B| = n - 2$, $L(S_n) - B \subseteq B^{'}$, and the root of $S_n$ is not in $B$ or $B^{'}$, then $\text{min}|B \cap B^{'}| = n - 3$.
+Therefore, $d(S_n) = (n - 2) - (n-3) = 1$.
+\end{proof}
 
 \begin{proposition}
-Given a cycle graph $C_n$ , $d(C_n)=2 \ \forall \ n \geq 4 \in \mathbb{N}$.
+Given a cycle graph $C_n$, $d(C_n)=2 \ \forall \ n \geq 4 \in \mathbb{N}$.
 \end{proposition}
 
 \begin{theorem}
@@ -159,7 +182,6 @@ Then $zf(G) - \text{min}|B \cap B^{'}| = \floor{n/2} + c$.
 This implies $zf(G) \geq \floor{n/2} + c$, and it follows that  $\text{min}|B\cap B^{'}| \geq c$ for all zero-forcing sets B and B'. 
 Hence, $d(G) \leq \floor{n/2}$, which contradicts our assumption that $d(G) > \floor{n/2}$.
 Therefore, $0 \leq d(G) \leq \floor{n/2}$  for all $G \in \mathbb{G}$.
-
 \end{proof}
 
 
